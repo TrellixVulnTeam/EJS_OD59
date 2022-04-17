@@ -9,13 +9,18 @@ app.get("/", (req, res) => {
     res.render("index.ejs")
 });
 
-//這邊用 :name 去做 params，『:name』可代表任何字符
-app.get("/:name", (req, res) => {
-		let {name} = req.params;
-		res.render("person.ejs", {Name: name});
-		//res.render 後方除了 basename 外，還可以放一個 optional 的物件
-		//第二個參數前面的 Name 等同 .ejs 檔案裡的 =Name；後面的 name 則是 :name
-		//亦可把上面兩行濃縮：res.render("person.ejs", {Name: req.params.name});
+/*
+下方的『/response』呼應了index.ejs中 form action 的傳送地點 /response；
+代表使用者一進入首頁先看到 index.ejs 的表格，送出後，網址跳轉為『/response』就
+進入下方所寫的代碼描述
+*/
+app.get("/response", (req, res) => {
+	let { fullname, age } = req.query;
+	//console.log(request.query);    
+	//上方可以看到使用者所輸入的資料，如{fullname: Daniel  age:18}
+	res.render("respond.ejs", {fullname, age});
+	//上方將『respond.ejs』的內容呈現在『/response』中，
+	//也讓{fullname, age}可在『respond.ejs』中使用
 });
 
 app.listen(3000, () => {
