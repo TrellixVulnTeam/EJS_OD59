@@ -8,16 +8,22 @@
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-    <h1>Simple Form</h1>
-    <form action="/response" method="GET">
-    <!-- form 的 action 屬性規範了表單要向哪裡提交，也代表了按下submit之後，
-        網址會變成： http://localhost:3000/response?fullname=&age=-->
-        <label for="fullname">Name:</label>
-        <input type="text" name="fullname" id="fullname">
-        <label for="age">Age:</label>
-        <input type="number" name="age" id="age">
-        <button type="submit">submit</button>
-    </form>
-
+    <h1>Common programming languages</h1>
+    <table>
+        <tr>
+            <th>name</th>
+            <th>rating</th>
+            <th>popularity</th>
+            <th>trending</th>
+        </tr>
+        <% languages.forEach(lang => { %> 
+        <tr>
+            <td><%=lang.name%></td>
+            <td><%=lang.rating%></td>
+            <td><%=lang.popularity%></td>
+            <td><%=lang.trending%></td>
+        </tr>
+        <% }); %>
+    </table>      
 </body>
 </html>

@@ -9,4 +9,17 @@ body {
   background-color: #494747;
   color: white;
 }
+
+table, tr, th, td {
+  border-collapse: collapse;
+  border: 1px solid white;
+}
+
+th {
+  text-align: center;
+}
+
+tr, th, td {
+  padding: 0.25rem 0.5rem;
+}
 /*# sourceMappingURL=style.css.map */
